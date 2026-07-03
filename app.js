@@ -12,7 +12,7 @@
 
 // Google Apps Script Web App Endpoint Placeholder
 // REPLACE this string with your actual Google Apps Script Web App URL after deployment.
-const SCRIPT_URL = "WEB_APP_URL";
+const SCRIPT_URL = "https://script.google.com/macros/s/xxxxxxxxxxxxxxxx/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
     // DOM Elements
@@ -346,19 +346,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Check if SCRIPT_URL remains configured as the placeholder variable
-        if (SCRIPT_URL === "WEB_APP_URL") {
-            // Simulate success for local testing
-            setLoadingState(true);
-            setTimeout(() => {
-                setLoadingState(false);
-                showSuccessPopup();
-                form.reset();
-                clearFileState();
-                handleExperienceChange();
-            }, 1500);
-            return;
-        }
 
         // Enable Loading States
         setLoadingState(true);
