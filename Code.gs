@@ -12,7 +12,7 @@ function doPost(e) {
   try {
     // Open the Google Sheet using the exact Spreadsheet ID provided
     var doc = SpreadsheetApp.openById("1jqRImi6XHPrldUmR_V3jTB5rXeaxlKZc2lw3JQv-Yv0");
-    var sheet = doc.getActiveSheet();
+    var sheet = doc.getSheets()[0];
     
     var data = e.parameter;
     
