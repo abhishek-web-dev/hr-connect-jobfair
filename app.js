@@ -12,7 +12,7 @@
 
 // Google Apps Script Web App Endpoint Placeholder
 // REPLACE this string with your actual Google Apps Script Web App URL after deployment.
-const SCRIPT_URL = "https://script.google.com/macros/s/xxxxxxxxxxxxxxxx/exec";
+const SCRIPT_URL = "https://docs.google.com/spreadsheets/d/1jqRImi6XHPrldUmR_V3jTB5rXeaxlKZc2lw3JQv-Yv0/edit?gid=0#gid=0";
 
 document.addEventListener("DOMContentLoaded", () => {
     // DOM Elements
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const experienceDetailsTextarea = document.getElementById("experienceDetails");
     const errorBanner = document.getElementById("form-error-banner");
     const errorBannerText = document.getElementById("form-error-text");
-    
+
     // Resume File Upload Elements
     const fileUploadZone = document.getElementById("file-upload-zone");
     const resumeInput = document.getElementById("resume-input");
@@ -56,17 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
        ========================================================================== */
     const handleScroll = () => {
         if (!heroSection || !stickyCta) return;
-        
+
         // Calculate when the user scrolls past the Hero Section
         const heroBottom = heroSection.offsetTop + heroSection.offsetHeight - 80;
-        
+
         if (window.scrollY > heroBottom) {
             stickyCta.classList.add("show");
         } else {
             stickyCta.classList.remove("show");
         }
     };
-    
+
     window.addEventListener("scroll", handleScroll);
 
     /* ==========================================================================
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
        ========================================================================== */
     const handleExperienceChange = () => {
         const value = experienceSelect.value;
-        
+
         // Show experience details for values other than Fresher
         if (value && value !== "Fresher") {
             experienceDetailsGroup.style.display = "flex";
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fileUploadZone.addEventListener("drop", (e) => {
         e.preventDefault();
         fileUploadZone.classList.remove("dragover");
-        
+
         if (e.dataTransfer.files.length > 0) {
             processFile(e.dataTransfer.files[0]);
         }
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
         reader.onload = (e) => {
             resumeBase64 = e.target.result;
             resumeFileName = file.name;
-            
+
             // Update UI state
             fileUploadZone.classList.add("has-file");
             uploadFilename.textContent = file.name;
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!element) return;
         const group = element.closest(".form-group");
         const errorSpan = document.getElementById(`error-${elementId}`);
-        
+
         if (group && errorSpan) {
             group.classList.add("has-error");
             errorSpan.textContent = message;
@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!element) return;
         const group = element.closest(".form-group");
         const errorSpan = document.getElementById(`error-${elementId}`);
-        
+
         if (group && errorSpan) {
             group.classList.remove("has-error");
             errorSpan.textContent = "";
@@ -332,10 +332,10 @@ document.addEventListener("DOMContentLoaded", () => {
        ========================================================================== */
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        
+
         // Hide previous error banners
         errorBanner.style.display = "none";
-        
+
         // Run validations
         if (!validateForm()) {
             // Find first element with error and scroll to it
@@ -380,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             console.error("Submission Error Details:", error);
             setLoadingState(false);
-            
+
             // Show error banner to user
             errorBannerText.textContent = "Unable to connect with the server. Please check your internet connection or try again later.";
             errorBanner.style.display = "flex";
@@ -412,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Start 3-second countdown and redirect to WhatsApp Group
         let countdownValue = 3;
         countdownSpan.textContent = countdownValue;
-        
+
         countdownInterval = setInterval(() => {
             countdownValue -= 1;
             countdownSpan.textContent = countdownValue;
@@ -430,14 +430,14 @@ document.addEventListener("DOMContentLoaded", () => {
         successModal.classList.remove("active");
         successModal.style.display = "none";
         document.body.style.overflow = ""; // Re-enable body scrolling
-        
+
         // Clear timers to prevent redirects if closed early
         if (redirectTimer) clearTimeout(redirectTimer);
         if (countdownInterval) clearInterval(countdownInterval);
     };
 
     closeModalBtn.addEventListener("click", hideSuccessPopup);
-    
+
     // Close modal if user clicks on the overlay background
     successModal.addEventListener("click", (e) => {
         if (e.target === successModal) {
