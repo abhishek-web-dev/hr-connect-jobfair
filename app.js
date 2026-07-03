@@ -12,7 +12,7 @@
 
 // Google Apps Script Web App Endpoint Placeholder
 // REPLACE this string with your actual Google Apps Script Web App URL after deployment.
-const SCRIPT_URL = "https://docs.google.com/spreadsheets/d/1jqRImi6XHPrldUmR_V3jTB5rXeaxlKZc2lw3JQv-Yv0/edit?gid=0#gid=0";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxF4V8rmxRmU16eoEV4zsGYT5lLPJP4woSCy6iA-xyNZ38bsTmVNryz0N_ATdBgpVQm/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
     // DOM Elements
